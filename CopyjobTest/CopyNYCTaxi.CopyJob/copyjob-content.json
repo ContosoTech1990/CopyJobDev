@@ -1,0 +1,113 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "0826b11d-8568-8401-4657-4cb4db0abc0f",
+          "rootFolder": "Tables"
+        }
+      }
+    },
+    "destination": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "4b8649bd-c1d8-4cf2-9a6a-d7353d435742",
+          "artifactId": "cc69465f-cb6a-4295-841c-da64a6d6128b",
+          "endPoint": "fi374tfeg74ejensl6xtijj4mi-xveyms6yyhzezgtk242t2q2xii.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00"
+    }
+  },
+  "activities": [
+    {
+      "id": "422a21f1-89be-4b11-a2b3-95768d25ecd9",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "table": "green_tripdata_2017"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "green_tripdata_2017"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "18bd3a4f-34cf-43b3-9b76-3b4f5fe76d61",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "table": "green_tripdata_2019"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "green_tripdata_2019"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "a9e0e0b3-1815-4351-bb2f-5a292f101682",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "table": "nyc_taxi_green_discounts"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "nyc_taxi_green_discounts"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}
